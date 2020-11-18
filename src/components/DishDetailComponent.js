@@ -17,7 +17,7 @@ import { Card, CardImg, CardTitle, CardBody, CardText } from 'reactstrap';
   }
 
   // Render Comments
-  function RenderComments(comments) {
+  function RenderComments ({comments}) {
     if (comments != null)
       return (
         <div>
@@ -53,14 +53,15 @@ import { Card, CardImg, CardTitle, CardBody, CardText } from 'reactstrap';
       <div className='container'>
       <div className='row'>
         <div className='col-12 col-md-5 my-1'>
-          {RenderDish(this.props.dish)}
+          <RenderDish dish={props.dish}/>
         </div>
         <div className='col-12 col-md-5 my-1'>
-          {this.renderComments(this.props.comments)}
+          <RenderComments comments={props.dish.comments} /> 
         </div>
       </div>
       </div>
     );
+    else return <div></div>;
   }
 
 export default Dishdetail;
